@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 245 239 230;
+  --text: 28 28 28;
+  --gold: 198 167 94;
+}
+
+.dark {
+  --bg: 18 18 18;
+  --text: 243 243 243;
+  --gold: 191 161 74;
+}
+
+* {
+  @apply border-slate-200;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-bg text-text font-sans antialiased transition-colors duration-300;
+}
+
+.glass {
+  @apply bg-white/50 dark:bg-black/30 backdrop-blur-xl border border-white/20;
+}
+
+.luxury-btn {
+  @apply relative overflow-hidden rounded-xl px-6 py-3 transition-all duration-300 shadow-md active:scale-95;
+}
+
+.luxury-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.35) 50%, transparent 70%);
+  transform: translateX(-140%);
+  pointer-events: none;
+}
+
+.luxury-btn:hover::after {
+  animation: shine 1.2s ease;
+}
